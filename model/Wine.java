@@ -10,7 +10,6 @@ public class Wine {
 	private Integer vintage;
 	private Region region;
 	private BigDecimal price;
-	private Colors color;
 	private Varietal varietal;
 	private int quantity;
 	private String description;
@@ -47,12 +46,7 @@ public class Wine {
 	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
-	public Colors getColor() {
-		return color;
-	}
-	public void setColor(Colors color) {
-		this.color = color;
-	}
+	
 	public Varietal getVarietal() {
 		return varietal;
 	}
