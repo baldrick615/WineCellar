@@ -13,4 +13,10 @@ public interface WineDAO {
 	public List<Wine> getWinesByVintage(Integer vintage);
 	public List<Wine> getWinesByRegion(Region region);
 	public List<Wine> getWinesByVarietal(Varietal varietal);
+	public List<Wine> getWinesByPrice(BigDecimal price);
+	public Wine createWine(Wine newWine);
+	public Wine updateWine(Wine updateWine);
+	public List<Wine> deleteWineById(Integer id);
+	List<Wine> report(Integer startVintage, Integer endVintage);
+	public List<Wine> getWinesById(Integer id);
 }
