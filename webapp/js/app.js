@@ -6,6 +6,10 @@
         controller: 'MainController',
         templateUrl: 'views/master.html',
       })
+      .when('/add', {
+        controller: 'AddController',
+        templateUrl: 'views/add-bottle.html',
+      })
       .otherwise({
         templateUrl: 'views/master.html',
       });

@@ -1,0 +1,33 @@
+<!-- Form to add new bottles to the collection. -->
+
+<h1>Add to your collection</h1>
+<h2>Let's add your new purchases here.</h2>
+<col-md-9>
+  <form class="row g-3">
+    <div class="row">
+      <div class="col-sm">
+        <label for="year" class="form-label">Vintage: </label>
+        <input type="number" class="form-control" name="vintage" id="vintage" />
+      </div>
+      <div class="col-sm-10">
+        <label for="name" class="form-label">Name: </label>
+        <input type="text" class="form-control" name="Wine Name" id="name" />
+      </div>
+    </div>
+    <label for="varietal" class="form-control" class="form-label"
+      >Varietal:
+    </label>
+    <input type="text" class="form-control" name="varietal" id="varietal" />
+    <label for="region" class="form-label">Region: </label>
+    <input type="text" class="form-control" name="region" id="region" />
+    <div class="col-md-2">
+      <label for="quantity" class="form-label">Quantity: </label>
+      <input type="number" class="form-control" name="quantity" id="quantity" />
+      <label for="price" class="form-label">Price Paid: </label>
+      <input type="number" class="form-control" name="price" id="price" />
+    </div>
+    <div class="col-12">
+      <input type="button" class="btn btn-primary" value="Submit" />
+    </div>
+  </form>
+</col-md-9>
