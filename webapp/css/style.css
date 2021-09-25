@@ -1,7 +1,10 @@
 @charset "UTF-8";
 
-html {
+body {
   font-family: 'Roboto', sans-serif;
+}
+.logo-text a {
+  font-size: 2rem;
 }
 
 .hero {

@@ -1,6 +1,7 @@
-(function () {
-  var winesFactory = function ($http) {
-    var wines = [
+app.controller('mockDataController', [
+  '$scope',
+  function ($scope) {
+    $scope.wines = [
       {
         name: 'Cakebread',
         vintage: 2018,
@@ -11,11 +12,11 @@
         region: 'ca',
       },
       {
-        name: 'Silver Oak',
+        name: 'Silver Oak, Napa Valley',
         vintage: 2012,
         color: 'red',
         price: 145,
-        varietal: 'cabernet sauvignon',
+        varietal: 'Cabernet Sauvignon',
         quantity: 4,
         region: 'ca',
       },
@@ -24,7 +25,7 @@
         vintage: 2018,
         color: 'red',
         price: 38.5,
-        varietal: 'cabernet sauvignon',
+        varietal: 'Other Red',
         quantity: 12,
         region: 'ca',
       },
@@ -56,20 +57,5 @@
         region: 'ca',
       },
     ];
-
-    var factory = {};
-    factory.getWines = function () {
-      return wines;
-    };
-    factory.getWines = function (name) {
-      for (var i = 0, len = $scope.wines.length; i < len; i++) {
-        if ($scope.wines[i].name === name) {
-          return wines[i];
-        }
-      }
-      return {};
-    };
-    return factory;
-  };
-  angular.module('WineCellarApp').factory('winesFactory', winesFactory);
-});
+  },
+]);
