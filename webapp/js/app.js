@@ -9,9 +9,8 @@ app.config(function ($routeProvider) {
       controller: 'AddController',
       templateUrl: 'views/add-bottle.html',
     })
-    .when('/edit', {
-      controller: 'updateController',
-      templateUrl: 'views/update.html',
+    .when('/resume', {
+      templateUrl: 'views/resume.html',
     })
     .otherwise({
       templateUrl: 'views/collection.html',
