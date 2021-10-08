@@ -1,0 +1,97 @@
+<div class="row">
+  <div class="col-sm-7">
+    <div class="card-header text-center">
+      <h3>Update Wine Information</h3>
+      <h5 class="text-success text-center" ng-bind="updateStatus"></h5>
+    </div>
+    <div class="card-body">
+      <form name="updateForm">
+	      <div class="row">
+	        <div class="form-group">
+	          <label for="vintage" class="font-weight-bold">Vintage: </label>
+	          <input
+	            ng-model="wine.vintage"
+	            max="2030"
+	            min="1950"
+	            type="number"
+	            class="form-control"
+	            id="vintage"
+	          />
+	        </div>
+	        <div class="form-group">
+	          <label for="name" class="font-weight-bold">Name:</label>
+	          <input ng-model="wine.name" type="text" name="name" id="name" />
+	        </div>
+	       </div>
+        <div class="form-group">
+          <label for="varietal" class="font-weight-bold">Varietal:</label>
+          <select ng-model="wine.varietal" class="form-control" id="varietal">
+            <option ng-repeat="varietal in varietals">{{varietal}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="region" class="font-weight-bold">Region: </label>
+          <select ng-model="wine.region" class="form-control" id="region">
+            <option ng-repeat="region in regions">{{region}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="price" class="font-weight-bold">Price: </label>
+          <input
+            ng-model="wine.price"
+            class="form-control"
+            type="number"
+            name="price"
+            id="price"
+          />
+        </div>
+        <div class="form-group">
+          <label for="quantity" class="font-weight-bold">Quantity: </label>
+          <input
+            ng-model="wine.quantity"
+            class="form-control"
+            type="number"
+            name="quantity"
+            id="quantity"
+          />
+        </div>
+        <div class="form-group">
+          <label for="notes" class="font-weight-bold">Tasting Notes: </label>
+          <textarea ng-model="wine.notes" class="form-control" id="notesArea" rows="3"></textarea>
+        </div>
+        
+      </form>
+    </div>
+    <div class="card-footer text-center">
+      <button
+        type="button"
+        class="btn btn-success"
+        ng-disabled="updateForm.$invalid || disableUpdate"
+        ng-click="updateWine()"
+      >
+        Update
+      </button>
+      <button type="button" 
+      	      class="btn btn-danger" 
+      		  ng-click="deleteWine()" 
+      		  ng-disabled="disableUpdate"
+      		  >Delete
+      		  </button>
+      <button type="button" 
+      		  class="btn btn-primary"
+      		  ng-click="goToSearchView()"
+      		  >Cancel Changes
+      		  </button>
+    </div>
+  </div>
+  <div class="col-sm-5">
+  <div class="pt-5">
+    <img
+      src="./img/wine-center.jpg"
+      alt="wine glass at vineyard"
+      class="img-fluid rounded-circle"
+    />
+  </div>
+</div>
+
+</div>

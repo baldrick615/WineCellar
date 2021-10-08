@@ -1,0 +1,33 @@
+<div class="card mt-3">
+  <div class="card-header bg-info">
+    <h4>Search the Archives</h4>
+    
+    <input type="text" class="btn bg-light" ng-model="searchValue" />
+  </div>
+  <div class="card-body">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th>Vintage</th>
+          <th>Name</th>
+          <th>Varietal</th>
+          <th>Region</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          ng-repeat="wine in archiveWines | filter: searchValue"
+          ng-click="goToBottleDetail(wine.id)"
+        >
+          <td>{{wine.vintage}}</td>
+          <td>{{wine.name}}</td>
+          <td>{{wine.varietal}}</td>
+          <td>{{wine.region | uppercase}}</td>
+          <td>{{ wine.price | currency }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer bg-info">Select wine for tasting notes</div>
+</div>

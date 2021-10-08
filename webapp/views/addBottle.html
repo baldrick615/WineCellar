@@ -1,0 +1,80 @@
+<h1 class="text-center p-3">Add Bottles to Your Collection</h1>
+
+<form class="main-form">
+  <div class="form-group mb-4">
+    <input
+      type="text"
+      name="name"
+      id="name"
+      class="form-control input-large"
+      placeholder="Enter name of wine"
+    />
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <input type="text" name="vintage" id="vintage" placeholder="Vintage" />
+        <label for="varietal">varietal</label>
+        <select
+          ng-options="value for value in varietals"
+          required
+          name="varietal"
+          ng-model="wine.varietal"
+          class=""
+          id="varietal"
+        ></select>
+        <label for="region">region</label>
+        <select
+          ng-options="value for value in regions"
+          required
+          name="region"
+          ng-model="wine.region"
+          class=""
+          id="region"
+          placeholder="Choose from the list..."
+        ></select>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="form-group">
+        <label for="price" class="font-weight-bold">Price: </label>
+        <input
+          ng-model="wine.price"
+          class="form-control"
+          type="text"
+          name="price"
+          id="price"
+        />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="quantity" class="">Quantity: </label>
+        <input
+          ng-model="wine.quantity"
+          class="form-control"
+          type="text"
+          name="quantity"
+          id="quantity"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group px-4">
+        <label for="notes"></label>
+        <textarea
+          name="editor1"
+          id="notes"
+          cols="93"
+          rows="7"
+          ng-model="wine.notes"
+          placeholder="Enter tasting / pairing notes here"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-success form-button">Add Wine</button>
+  <button class="btn btn-warning form-button">Undo</button>
+</form>

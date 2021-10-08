@@ -7,6 +7,7 @@
     <title>Wine Cellar</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -15,23 +16,28 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Italianno&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body ng-app="WineCellarApp">
-    <nav class="navbar navbar-expand-xl navbar-light bg-dark">
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
       <div class="logo-text">
         <a class="navbar-brand text-danger" href="#home"
-          ><i class="fas fa-wine-glass fa-2x"></i> Wine Cellar</a
+          ><i class="fas fa-wine-glass"></i> Wine Cellar</a
         >
       </div>
       <button
@@ -47,18 +53,20 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-link active text-white" href="#home"
+          <a class="nav-link active text-white" href="#!"
             >Home <span class="sr-only">(current)</span></a
           >
           <a class="nav-link text-white" href="#!search">Search</a>
           <a class="nav-link text-white" href="#!add">Add</a>
+          <a class="nav-link text-white" href="#!archive">Archive</a>
           <a class="nav-link text-white" href="#!resume">About Us</a>
+          <a class="nav-link text-white" href="#!detail">Details</a>
         </div>
       </div>
     </nav>
     <section id="hero" class="hero text-white">
       <div class="container p-2">
-        <div ng-view="ng-scope"></div>
+        <div ng-view></div>
       </div>
     </section>
 
@@ -71,12 +79,14 @@
 
     <!-- Controllers -->
 
-    <script src="js/controllers/mockDataController.js"></script>
-    <script src="js/controllers/AddController.js"></script>
     <script src="js/controllers/searchController.js"></script>
+    <script src="js/controllers/createController.js"></script>
+    <script src="js/controllers/updateController.js"></script>
+    <script src="js/controllers/archiveController.js"></script>
+    <script src="js/controllers/homeController.js"></script>
+    <script src="js/controllers/bottleController.js"></script>
 
     <!-- Directives -->
-    <!-- <script src="js/directives/wineInfo.js"></script> -->
 
     <!-- Services -->
 
