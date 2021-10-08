@@ -2,28 +2,23 @@ package com.trm.winecellar.model;
 
 public class RequestError {
 	private Integer id;
-	private String message;
+	private String errorMessage;
 	
-	public RequestError(Integer id, String message) {
-		this.setId(id);
-		this.setMessage(message);
+	public RequestError(Integer id, String errorMessage) {
+		this.id = id;
+		this.errorMessage = errorMessage;
 	}
-
 	public Integer getId() {
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	public String getMessage() {
-		return message;
+	public String getErrorMessage() {
+		return errorMessage;
 	}
-
-	public void setMessage(String message) {
-		this.message = message;
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
 	}
-	
 
 }
