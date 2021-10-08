@@ -1,93 +1,106 @@
 package com.trm.winecellar.service;
 
-import java.math.BigDecimal;
 import java.util.List;
 
-import com.trm.winecellar.dao.WineCellarImpl;
-import com.trm.winecellar.dao.WineDAO;
-import com.trm.winecellar.dao.WineDAOMock;
+import com.trm.winecellar.dao.WineDAOImpl;
+import com.trm.winecellar.dao.WineDao;
 import com.trm.winecellar.model.Region;
 import com.trm.winecellar.model.RequestError;
-import com.trm.winecellar.model.Varietal;
 import com.trm.winecellar.model.Wine;
 
 import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.Response;
 
 public class WineService {
-	private WineDAO wineDAO = new WineCellarImpl();
 	
-	public List<Wine> getWines(){
-		return wineDAO.getWines();
+	private WineDao wineDao = new WineDAOImpl();
+	
+	public List<Wine> getWines() {
+		return wineDao.getWines();
+	}
+	
+	public List<Wine> getWinesByRegion(Region region){
+		return wineDao.getWinesByRegion(region);
 	}
 	
 	public List<Wine> getWinesByVintage(Integer vintage){
-		validateVintageYear(vintage);
-		return wineDAO.getWinesByVintage(vintage);
+		validateVintage(vintage);
+		return wineDao.getWinesByVintage(vintage);
+	}
+		
+	public List<Wine> getWinesById(Integer wineId){
+		validateWineId(wineId);
+		return wineDao.getWinesById(wineId);
 	}
 	
-	private void validateVintageYear(Integer vintage) {
-		if (vintage < 1950 || vintage > 2035) {
-			RequestError err = new RequestError(1, "The vintage is outside normal range (1950 - 2035). Please check your input.");
+//	Validation logic
+	
+	private void validateVintage(Integer vintage) {
+		if (vintage < 1950 || vintage > 2030) {
+			RequestError error = new RequestError(1, "Invalid year entered.");
 			Response response = Response.status(400)
-					.entity(err)
+					.entity(error)
 					.build();
 			throw new WebApplicationException(response);
 		}
 		
 	}
 	
-	private void priceCheck(BigDecimal price) {
-		BigDecimal low = new BigDecimal("2");
-		BigDecimal high = new BigDecimal("500");
-		
-		if (price.compareTo(low) < 1 || price.compareTo(high) > -1) {
-			RequestError priceCheck = new RequestError(2, "The value entered is too high or too low.");
+	private void validateWineId(Integer wineId) {
+		if (wineId < 1) {
+			RequestError error = new RequestError(2, "wineId must be > 1.");
 			Response response = Response.status(400)
-				.entity(priceCheck)
-				.build();
+					.entity(error)
+					.build();
 			throw new WebApplicationException(response);
 		}
 	}
-
-	public List<Wine> getWinesByVarietal(Varietal varietal){
-		return wineDAO.getWinesByVarietal(varietal);
-	}
-
-	public List<Wine> getWinesByRegion(Region region) {
-		return wineDAO.getWinesByRegion(region);
-	}
-
-	public List<Wine> getWinesByPrice(BigDecimal price) {
-		priceCheck(price);
-		return wineDAO.getWinesByPrice(price);
-	}
-
-//	CREATE new bottle
+	
 	public Wine createWine(Wine newWine) {
-		priceCheck(newWine.getPrice());
-		validateVintageYear(newWine.getVintage());
-		return wineDAO.createWine(newWine);
+//		validateVintage(newWine.getVintage());
+		return wineDao.createWine(newWine);
 	}
 
-//	Update wine entry
+	public Wine deleteWine(Integer id) {
+		validateWineId(id);
+		return wineDao.deleteWine(id);
+		}
+	
 	public Wine updateWine(Wine updateWine) {
-		validateVintageYear(updateWine.getVintage());
-		priceCheck(updateWine.getPrice());
-		return wineDAO.updateWine(updateWine);
-	}
-	
-//	DELETE wine from collection
-	public List<Wine> deleteWineById(Integer id) {
-		return wineDAO.deleteWineById(id);
-	}
-	
-	public List<Wine> getReport(Integer startVintage, Integer endVintage){
-		return wineDAO.report(startVintage, endVintage);
+		validateVintage(updateWine.getVintage());
+		validateWineId(updateWine.getId());
+		return wineDao.updateWine(updateWine);
 	}
 
-	public List<Wine> getWinesById(Integer id) {
-		return wineDAO.getWinesById(id);
+	public List<Wine> getReport(Integer startVintage, Integer endVintage) {
+		validateReportQueryValues(startVintage, endVintage);
+		return wineDao.report(startVintage, endVintage);
+		
+	}
+
+	private void validateReportQueryValues(Integer startVintage, Integer endVintage) {
+		if(startVintage < 1950 || startVintage > 2030) {
+			makeError(3, "Invalid value for beginning year: " + startVintage);
+		}
+		if(endVintage < 1950 || endVintage > 2030) {
+			makeError(4, "Invalid ending vintage year: " + endVintage);
+		}
+		if(startVintage > endVintage) {
+			makeError(5, "The starting year must be less than the ending year. ");
+		}
+		
+	}
+	
+	private void makeError(int errorNumber, String errorMessage) {
+		RequestError error = new RequestError(errorNumber, errorMessage);
+		Response response = Response.status(400)
+				.entity(error)
+				.build();
+		throw new WebApplicationException(response);
+	}
+	
+	public List<Wine> getWinesByQuantity(Integer quantity){
+		return wineDao.getWinesByQuantity(quantity);
 	}
 
 }
