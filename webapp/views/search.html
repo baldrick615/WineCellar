@@ -18,7 +18,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="wine in wines | filter: searchValue" ng-hide="{{wine.quantity}} == 0">
+        <tr
+          ng-repeat="wine in wines | filter: searchValue"
+          ng-hide="{{wine.quantity}} == 0"
+        >
           <td>{{wine.vintage}}</td>
           <td>{{wine.name}}</td>
           <td>{{wine.varietal}}</td>
@@ -26,7 +29,7 @@
           <td>{{ wine.price | currency }}</td>
           <td>{{ wine.quantity }}</td>
           <td>
-            <i class="fas fa-expand-alt" ng-click="goToDetailView(wine.id)">
+            <i class="fas fa-expand-arrows-alt" ng-click="goToDetailView(wine.id)">
             </i>
           </td>
           <td>

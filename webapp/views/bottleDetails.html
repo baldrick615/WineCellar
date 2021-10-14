@@ -1,6 +1,29 @@
-<p>Bottle Details</p>
 <div class="container">
-  <h1>{{wine.name}}</h1>
-  <p>{{wine.id}}</p>
-  <p>{{wine.vintage}}</p>
+  <div class="card m-auto text-dark" style="width: 32rem">
+    <img
+      src="./img/dinner-party-2.jpg"
+      class="card-img-top"
+      alt="dinner party"
+    />
+    <div class="card-body">
+      <row>
+        <h3 class="card-title text-dark">
+          {{ wine.vintage }}, {{ wine.name }}
+        </h3>
+        <h4 class="card-title text-dark text-italic">{{wine.varietal}}</h4>
+        <p class="card-text">{{wine.notes}}</p>
+      </row>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{wine.region}}</li>
+      <li class="list-group-item">
+        Price per bottle: {{wine.price | currency}}
+      </li>
+      <li class="list-group-item">Bottles on Hand: {{wine.quantity}}</li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link">home</a>
+      <a href="#!search" class="card-link">back to search</a>
+    </div>
+  </div>
 </div>

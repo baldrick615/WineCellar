@@ -6,6 +6,7 @@
       type="text"
       name="name"
       id="name"
+      ng-model="wine.name"
       class="form-control input-large"
       placeholder="Enter name of wine"
     />
@@ -13,14 +14,16 @@
   <div class="row">
     <div class="col">
       <div class="form-group">
-        <input type="text" name="vintage" id="vintage" placeholder="Vintage" />
+        <input type="text" name="vintage" ng-model="wine.vintage"
+          class="form-control" id="vintage" placeholder="Vintage" />
+        
         <label for="varietal">varietal</label>
         <select
           ng-options="value for value in varietals"
           required
           name="varietal"
           ng-model="wine.varietal"
-          class=""
+          class="form-control"
           id="varietal"
         ></select>
         <label for="region">region</label>
@@ -29,7 +32,7 @@
           required
           name="region"
           ng-model="wine.region"
-          class=""
+          class="form-control"
           id="region"
           placeholder="Choose from the list..."
         ></select>
@@ -75,6 +78,6 @@
       </div>
     </div>
   </div>
-  <button class="btn btn-success form-button">Add Wine</button>
-  <button class="btn btn-warning form-button">Undo</button>
+  <button class="btn btn-success form-button" ng-click="createWine()">Add Wine</button>
+  <button class="btn btn-warning form-button" ng-click="clear()">Undo</button>
 </form>

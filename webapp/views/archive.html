@@ -1,7 +1,7 @@
 <div class="card mt-3">
   <div class="card-header bg-info">
     <h4>Search the Archives</h4>
-    
+
     <input type="text" class="btn bg-light" ng-model="searchValue" />
   </div>
   <div class="card-body">
@@ -25,6 +25,10 @@
           <td>{{wine.varietal}}</td>
           <td>{{wine.region | uppercase}}</td>
           <td>{{ wine.price | currency }}</td>
+          <td>
+            <i class="fas fa-expand-arrows-alt" ng-click="goToDetailView(wine.id)">
+            </i>
+          </td>
         </tr>
       </tbody>
     </table>
