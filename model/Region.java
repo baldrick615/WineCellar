@@ -1,7 +1,7 @@
 package com.trm.winecellar.model;
 
 public enum Region {
-	ca("California"), otherUs("Other US"), or("Oregon"), wa("Washington"), fr("France"), sp("Spain"), it("Italy"), au("Australia"), ROW("Rest of World");
+	Ca("California"), OtherUS("Other US"), Or("Oregon"), Wa("Washington"), Fr("France"), Sp("Spain"), It("Italy"), Au("Australia"), ROW("Rest of World"), OtherEU("Other EU");
 	
 	public static Region convertStringToRegion(String value) {
 		Region myRegion = null;
