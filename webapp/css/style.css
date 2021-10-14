@@ -5,14 +5,20 @@ body {
   font-size: 2rem;
 }
 
+button {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
 .hero {
   background-image: url('https://images.unsplash.com/photo-1548025396-689d647d00c5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2067&q=80');
-  min-height: 700px;
+  min-height: 720px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.9;
+  opacity: 0.8;
 }
+
+/* Resume */
 
 .school-name {
   font-size: 1.5rem;
@@ -20,9 +26,18 @@ body {
 }
 
 .term {
-  font-size: smaller;
+  font-size: 0.9rem;
   font-weight: 400;
   color: aquamarine;
+}
+
+.mission-stmt {
+  color: aquamarine;
+  font-size: 1.1 rem;
+}
+
+#resume-section {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 /* Carousel */
@@ -63,4 +78,9 @@ body {
   width: 150px;
   padding: 10px;
   margin-left: 20px;
+}
+
+.detail-hero {
+  max-width: 25%;
+  max-height: 25%;
 }
