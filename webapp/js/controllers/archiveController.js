@@ -14,10 +14,9 @@
     };
     $scope.getWinesByQuantity();
 
-    $scope.goToUpdateView = function (id) {
-      console.log('go to the update view');
-      console.log('id: ' + id);
-      $location.path('/update/' + id);
+    $scope.goToDetailView = function (id) {
+      console.log('go to the detailBottle view');
+      $location.path('/detail/' + id);
     };
   });
 })();

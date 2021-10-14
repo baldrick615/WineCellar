@@ -29,6 +29,7 @@
         $http.put('/winecellar/webapi/wines', $scope.wine).then(
           function (response) {
             $scope.updateStatus = 'update successful';
+            
           },
           function (response) {
             $scope.updateStatus = 'error trying to update wine!';
@@ -54,8 +55,20 @@
       
 
       $scope.getWinesById();
+      
 
-      $scope.regions = ['au', 'wa', 'or', 'ca', 'fr', 'it', 'ROW', 'otherUS'];
+      $scope.regions = [
+    	  'Au',
+	      'Ca',
+	      'Fr',
+	      'Wa',
+	      'Or',
+	      'OtherUs',
+	      'ROW', 
+	      'It',
+	      'Sp',
+	      'OtherEU'
+	    ],
       
       
       $scope.varietals = [

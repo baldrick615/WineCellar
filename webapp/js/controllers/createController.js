@@ -2,18 +2,20 @@
   var app = angular.module('WineCellarApp');
 
   app.controller('createController', function ($scope, $http) {
-    ($scope.regions = [
-      'au',
-      'ca',
-      'fr',
-      'wa',
-      'or',
-      'otherUS',
-      'ROW',
-      'it',
-      'sp',
-      'otherEU'
-    ]),
+    $scope.regions = [
+    	  'Au',
+	      'Ca',
+	      'Fr',
+	      'Wa',
+	      'Or',
+	      'OtherUs',
+	      'ROW', 
+	      'It',
+	      'Sp',
+	      'OtherEU'
+	      
+	    ],
+    
       ($scope.varietals = [
         'cabernetSauvignon',
         'champagne',
@@ -22,13 +24,14 @@
         'otherRed',
         'otherWhite',
         'pinotNoir',
-        'shiraz'
-        
+        'shiraz',
       ]);
 
     $scope.createWine = function () {
+    	console.log($scope.wine)
       $http.post('/winecellar/webapi/wines', $scope.wine).then(
         function (response) {
+          
           $scope.createStatus = 'create Successful!';
           $scope.disableCreate = true;
         },
@@ -40,8 +43,9 @@
     };
 
     $scope.clear = function () {
-      $scope.wine.vintage = '';
+      
       $scope.wine.name = '';
+      $scope.wine.vintage = '';
       $scope.wine.region = '';
       $scope.wine.quantity = '';
       $scope.price = '';

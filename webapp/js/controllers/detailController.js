@@ -1,12 +1,11 @@
 (function () {
   var app = angular.module('WineCellarApp');
-  app.controller(
-    'detailController',
-    function ($scope, $http, $routeParams) {
-      var wineId = $routeParams.id;
-      console.log($routeParams)
+  app.controller('detailController', function ($scope, $http, $routeParams) {
+  	
+  	  var wineId = $routeParams.id;
+      console.log($routeParams + ' ' + wineId)
       getWinesById = function () {
-        $http.get('/winecellar/webapi/wines/' + $routeParams.id).then(
+       $http.get('/winecellar/webapi/wines/' + $routeParams.id).then(
           function (response) {
             let wines = response.data;
             if (wines.length == 1) {
@@ -18,9 +17,11 @@
           function (response) {
             console.log('error http GET wines');
           }
-        );
-        getWinesById();
+        );  
+        
       };
-      
+      getWinesById();
+     
     });
+   
 })();
